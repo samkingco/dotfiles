@@ -20,7 +20,7 @@ alias setdefaults=". ~/.macos"
 alias backup="sudo ~/src/dotfiles/scripts/backup.sh"
 alias newsite=". ~/src/dotfiles/scripts/new_site.sh"
 alias rbp=". ~/.bash_profile"
-alias lystup="docker-machine start default && source ~/.bash_profile && make dev-startup"
+alias note=". ~/src/dotfiles/scripts/new-note.sh"
 
 # GIT
 alias g='git'
