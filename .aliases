@@ -10,17 +10,13 @@ alias -- -="cd -"
 alias db="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias s="cd ~/Dropbox/Sites"
 alias dotfiles="cd ~/src/dotfiles"
 
 # Scripts
 alias bootstrap=". ~/src/dotfiles/scripts/bootstrap.sh"
-alias aliases="subl ~/src/dotfiles/.aliases"
-alias setdefaults=". ~/.macos"
 alias backup="sudo ~/src/dotfiles/scripts/backup.sh"
-alias newsite=". ~/src/dotfiles/scripts/new_site.sh"
+alias setdefaults=". ~/.macos"
 alias rbp=". ~/.bash_profile"
-alias note=". ~/src/dotfiles/scripts/new-note.sh"
 
 # GIT
 alias g='git'
@@ -30,9 +26,6 @@ alias ghpr='open https://`currepo`/pull/new/`curbranch`'
 alias bbpr='open https://`currepo`/pull-requests/new?source=`curbranch`&t=1'
 alias gg="git grep --full-name --break --heading --line-number"
 alias gdm="git branch --merged master | grep -v master | xargs -n 1 git branch -d"
-
-# Initialise a web preview of repo
-alias gweb='git instaweb --httpd webrick'
 
 # Tell ls and cat to be colourful
 export CLICOLOR=1
@@ -50,15 +43,6 @@ alias lsd='ls -lF | grep "^d"'
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
 
-# Gzip-enabled `curl`
-alias gurl='curl --compressed'
-
-# Get week number
-alias week='date +%V'
-
-# VTop
-alias vtop='vtop --theme monokai'
-
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
@@ -73,33 +57,20 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 
-# Enhanced WHOIS lookups
-alias whois="whois -h whois-servers.net"
-
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
 
-# View HTTP traffic
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-
-# Canonical hex dump; some systems have this symlinked
-command -v hd > /dev/null || alias hd="hexdump -C"
-
-# OS X has no `md5sum`, so use `md5` as a fallback
-command -v md5sum > /dev/null || alias md5sum="md5"
-
-# OS X has no `sha1sum`, so use `shasum` as a fallback
-command -v sha1sum > /dev/null || alias sha1sum="shasum"
-
 # Trim new lines and copy to clipboard
 alias trimcopy="tr -d '\n' | pbcopy"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Recursively delete JPG files in `cam`
+alias deljpg="find ~/media/cam -type f -name '*.JPG' -ls -delete"
 
 # Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed
@@ -116,26 +87,10 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-# Merge PDF files
-# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
-alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
-
 # Disable Spotlight
 alias spotoff="sudo mdutil -a -i off"
 # Enable Spotlight
 alias spoton="sudo mdutil -a -i on"
-
-# PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
-alias plistbuddy="/usr/libexec/PlistBuddy"
-
-# Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
-# (useful when executing time-consuming commands)
-alias badge="tput bel"
-
-# Intuitive map function
-# For example, to list all directories that contain a certain file:
-# find . -name .gitattributes | map dirname
-alias map="xargs -n1"
 
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
@@ -143,6 +98,7 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 
 # Pipe my public key to my clipboard.
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+alias 1pkey="more ~/lib/1p/1p.md | pbcopy | echo '=> Key copied to pasteboard.'"
 
 # Use new rsync
 alias rsync="/usr/local/bin/rsync"
@@ -151,3 +107,7 @@ alias rsync="/usr/local/bin/rsync"
 alias h="history"
 alias j="jobs"
 alias lcom="lolcommits"
+
+# Crypto
+alias btc="curl -sSL https://api.coinmarketcap.com/v2/ticker/1/?convert=BTC | python -c 'import sys, json; usd = json.load(sys.stdin)[\"data\"][\"quotes\"][\"USD\"][\"price\"]; print \"\${}\".format(usd)'"
+alias crypto="curl -sSL https://api.coinmarketcap.com/v2/listings/ | python -c 'import sys, json, requests; listings = json.load(sys.stdin)[\"data\"]; coin = [item for item in listings if item.get(\"symbol\")==\"BTC\"]; id = coin[0][\"id\"]'"

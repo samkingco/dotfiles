@@ -4,7 +4,7 @@
 # dotfiles directory
 dir=~/src/dotfiles
 # list of files/folders to create symlinks
-symlink=".bash_profile .bash_prompt .path .aliases .exports .functions .extra .brew .gitconfig .gitignore .macos .backupignore"
+symlink=".bash_profile .bash_prompt .path .aliases .exports .functions .extra .gitconfig .gitignore .macos .backupignore"
 
 # change to the dotfiles directory
 echo "Changing to the $dir directory"
