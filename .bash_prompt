@@ -25,9 +25,9 @@ prompt_git() {
 #PS1="\e[33m\w\]" # working directory
 #PS1+="\e[95m\$(prompt_git)\e[0m\]\]" # git branch
 #PS1+="\n" # new line
-PS1="\[\e[33m\]→ \[\e[0m\]" # prompt
+PS1="%F{yellow}→ %f" # prompt
 export PS1;
 
 # multi-line
-PS2="\[\e[2m\]→ \[\e[22m\]";
+PS2="%F{yellow}→ %f";
 export PS2;

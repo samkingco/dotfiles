@@ -2,7 +2,7 @@
 # This script creates symlinks from the home directory to any desired dotfiles in $dir
 
 # dotfiles directory
-dir=~/src/dotfiles
+dir=~/Code/dotfiles
 # list of files/folders to create symlinks
 symlink=".bash_profile .bash_prompt .path .aliases .exports .functions .extra .gitconfig .gitignore .macos .backupignore"
 
