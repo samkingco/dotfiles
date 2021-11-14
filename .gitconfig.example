@@ -3,30 +3,30 @@
 	email = email@batman.com
 [alias]
 	aa   = add .
-    a    = add
-    b    = branch -v
-    bd   = branch -d
-    c    = commit
-    cm   = commit -m
-    co   = checkout
-    cob  = checkout -b
-    com  = checkout master
-    d    = diff --stat
-    df   = diff --color --color-words --abbrev
-    da   = diff HEAD
-    i    = init
-    ib   = init --bare
-    l    = log
-    lg   = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-    ld   = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-    m    = merge
+	a    = add
+	b    = branch -v
+	bd   = branch -d
+	c    = commit
+	cm   = commit -m
+	co   = checkout
+	cob  = checkout -b
+	com  = checkout main
+	d    = diff --stat
+	df   = diff --color --color-words --abbrev
+	da   = diff HEAD
+	i    = init
+	ib   = init --bare
+	l    = log
+	lg   = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	ld   = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+	m    = merge
 	p    = push
-	prum = pull --rebase upstream master
+	prum = pull --rebase upstream main
 	s    = status -s
-    st   = stash
-    stl  = stash list
-    std  = stash drop
-    stp  = stash pop
+	st   = stash
+	stl  = stash list
+	std  = stash drop
+	stp  = stash pop
 	r    = remote -v
 [color]
 	ui = auto

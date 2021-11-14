@@ -10,13 +10,9 @@ alias -- -="cd -"
 alias db="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias dotfiles="cd ~/src/dotfiles"
 
 # Scripts
-alias bootstrap=". ~/src/dotfiles/scripts/bootstrap.sh"
-alias backup="sudo ~/src/dotfiles/scripts/backup.sh"
 alias setdefaults=". ~/.macos"
-alias rbp=". ~/.bash_profile"
 
 # GIT
 alias g='git'
@@ -25,7 +21,7 @@ alias gpullall='find . -type d -depth 1 -exec echo git --git-dir={}/.git --work-
 alias ghpr='open https://`currepo`/pull/new/`curbranch`'
 alias bbpr='open https://`currepo`/pull-requests/new?source=`curbranch`&t=1'
 alias gg="git grep --full-name --break --heading --line-number"
-alias gdm="git branch --merged master | grep -v master | xargs -n 1 git branch -d"
+alias gdm="git branch --merged main | grep -v main | xargs -n 1 git branch -d"
 
 # Tell ls and cat to be colourful
 export CLICOLOR=1
@@ -69,9 +65,6 @@ alias trimcopy="tr -d '\n' | pbcopy"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
-# Recursively delete JPG files in `cam`
-alias deljpg="find ~/media/cam -type f -name '*.JPG' -ls -delete"
-
 # Empty the Trash on all mounted volumes and the main HDD
 # Also, clear Apple’s System Logs to improve shell startup speed
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
@@ -98,7 +91,6 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 
 # Pipe my public key to my clipboard.
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
-alias 1pkey="more ~/lib/1p/1p.md | pbcopy | echo '=> Key copied to pasteboard.'"
 
 # Use new rsync
 alias rsync="/usr/local/bin/rsync"
@@ -107,7 +99,3 @@ alias rsync="/usr/local/bin/rsync"
 alias h="history"
 alias j="jobs"
 alias lcom="lolcommits"
-
-# Crypto
-alias btc="curl -sSL https://api.coinmarketcap.com/v2/ticker/1/?convert=BTC | python -c 'import sys, json; usd = json.load(sys.stdin)[\"data\"][\"quotes\"][\"USD\"][\"price\"]; print \"\${}\".format(usd)'"
-alias crypto="curl -sSL https://api.coinmarketcap.com/v2/listings/ | python -c 'import sys, json, requests; listings = json.load(sys.stdin)[\"data\"]; coin = [item for item in listings if item.get(\"symbol\")==\"BTC\"]; id = coin[0][\"id\"]'"
