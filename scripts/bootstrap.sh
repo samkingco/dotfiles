@@ -4,7 +4,7 @@
 # dotfiles directory
 dir=~/Code/dotfiles
 # list of files/folders to create symlinks
-symlink=".zshrc .zprofile .path .aliases .exports .functions .extra .gitconfig .gitignore .macos .backupignore"
+symlink=(.zshrc .zprofile .path .aliases .exports .functions .extra .gitconfig .gitignore .macos .backupignore)
 
 # change to the dotfiles directory
 echo "Changing to the $dir directory"
