@@ -1,0 +1,71 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+	"languages": {
+		"Plain Text": {
+			"show_inline_completions": false
+		}
+	},
+	"base_keymap": "Atom",
+	"auto_update_extensions": {
+		"biome": false
+	},
+	"assistant": {
+		"dock": "right",
+		"default_model": {
+			"provider": "zed.dev",
+			"model": "claude-3-5-sonnet-latest"
+		},
+		"version": "2"
+	},
+	"features": {
+		"inline_completion_provider": "supermaven"
+	},
+	"auto_update": true,
+	"auto_update_channel": "stable",
+	"buffer_font_size": 12,
+	"buffer_font_family": "CommitMono",
+	"calls": {
+		"mute_on_join": true
+	},
+	"chat_panel": {
+		"button": false
+	},
+	"soft_wrap": "preferred_line_length",
+	"preferred_line_length": 100,
+	"format_on_save": "on",
+	"formatter": {
+		"language_server": {
+			"name": "biome"
+		}
+	},
+	"code_actions_on_format": {
+		"source.fixAll.biome": true,
+		"source.organizeImports.biome": true
+	},
+	"project_panel": {
+		"file_icons": false,
+		"folder_icons": false,
+		"indent_size": 8,
+		"dock": "right"
+	},
+	"show_call_status_icon": false,
+	"relative_line_numbers": true,
+	"telemetry": {
+		"metrics": false,
+		"diagnostics": false
+	},
+	"tab_size": 2,
+	"theme": "Vesper",
+	"toolbar": {
+		"quick_actions": false
+	},
+	"ui_font_size": 14,
+	"ui_font_family": "CommitMono"
+}

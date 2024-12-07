@@ -26,9 +26,6 @@ brew install \
     zsh-autocomplete \
     zsh-autosuggestions
 
-info "Installing Brew casks...\n"
-brew install --cask 1password-cli
-
 # Install Node version manager without auto-modifying shell config
 info "Installing nvm...\n"
 PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash'

@@ -44,6 +44,13 @@ export NVM_DIR="$HOME/.nvm"
 # Shell Options                                                               #
 ###############################################################################
 
+# Auto-completion
+if [ -n "$ZSH_VERSION" ]; then
+    source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+    zstyle ':completion:*' menu select
+fi
+
 # History
 export HISTSIZE=32768
 export SAVEHIST=$HISTSIZE
@@ -69,8 +76,8 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # Scripts
-alias dotsetup="$HOME/Code/dotfiles/scripts/bootstrap.sh"
-alias defaults="$HOME/Code/dotfiles/scripts/macos-defaults.sh"
+alias dotsetup="$HOME/Code/dotfiles/scripts/install.sh"
+alias defaults="$HOME/Code/dotfiles/scripts/configure-macos.sh"
 
 # GIT
 alias g='git'

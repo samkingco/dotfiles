@@ -19,12 +19,17 @@ If you prefer to run the steps individually:
 ./scripts/install-dev-tools.sh
 ```
 
-2. Configure dotfiles:
+2. Install applications:
+```bash
+./scripts/install-apps.sh
+```
+
+3. Configure dotfiles:
 ```bash
 ./scripts/configure-dotfiles.sh
 ```
 
-3. Configure macOS settings:
+4. Configure macOS settings:
 ```bash
 ./scripts/configure-macos.sh
 ```

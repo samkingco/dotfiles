@@ -137,14 +137,7 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 defaults write com.apple.terminal StringEncodings -array 4
 defaults write com.apple.terminal SecureKeyboardEntry -bool true
 defaults write com.apple.Terminal ShowLineMarks -int 0
-
-# Safari
-if [ -d "$HOME/Library/Containers/com.apple.Safari" ]; then
-    defaults write com.apple.Safari IncludeDevelopMenu -bool true
-    defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-    defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-    defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
-fi
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 # TextEdit for quick plain text
 defaults write com.apple.TextEdit RichText -int 0
@@ -176,12 +169,6 @@ defaults write com.apple.messageshelper.MessageController SOInputLineSettings -d
 
 # Photos
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
-
-# Time Machine
-defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
-if command -v tmutil >/dev/null 2>&1; then
-    sudo tmutil disable local
-fi
 
 # Network
 sudo systemsetup -setwakeonnetworkaccess off >/dev/null 2>&1

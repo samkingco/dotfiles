@@ -7,6 +7,10 @@ info "Setting up your Mac...\n"
 info "Installing developer tools...\n"
 ./scripts/install-dev-tools.sh
 
+# Configure apps
+info "Installing applications...\n"
+./scripts/install-apps.sh
+
 # Configure dotfiles
 info "Configuring dotfiles...\n"
 ./scripts/configure-dotfiles.sh

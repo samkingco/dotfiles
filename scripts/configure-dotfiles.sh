@@ -7,7 +7,14 @@ dir=~/Code/dotfiles
 # list of files to symlink in home directory
 files=(.zshrc .zprofile .gitconfig .gitignore)
 # list of scripts to make executable
-scripts=(configure-macos.sh configure-dotfiles.sh install-dev-tools.sh install.sh feedback.sh)
+scripts=(
+    install.sh
+    install-apps.sh
+    install-dev-tools.sh
+    configure-macos.sh
+    configure-dotfiles.sh
+    feedback.sh
+)
 
 # change to the dotfiles directory
 cd $dir
@@ -19,6 +26,10 @@ for file in "${files[@]}"; do
     echo "symlinking ~/$file to $dir/$file"
     ln -s $dir/$file ~/$file
 done
+
+# Create Zed config directory and symlink settings.json
+mkdir -p ~/.config/zed
+ln -s "$dir/config/zed/settings.json" ~/.config/zed/settings.json
 
 echo "Making scripts executable..."
 for script in "${scripts[@]}"; do
@@ -45,6 +56,6 @@ else
     info "Git configuration already exists\n"
 fi
 
-source ~/.zshrc
+zsh -c 'source ~/.zshrc'
 
 success "Dotfiles have been installed!"
