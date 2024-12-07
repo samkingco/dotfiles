@@ -1,0 +1,87 @@
+# Include personal settings
+[include]
+    path = ~/.gitconfig.local
+
+# Aliases
+[alias]
+    aa   = add .
+    a    = add
+    b    = branch -v
+    bd   = branch -d
+    c    = commit
+    cm   = commit -m
+    co   = checkout
+    cob  = checkout -b
+    com  = checkout main
+    d    = diff --stat
+    df   = diff --color --color-words --abbrev
+    da   = diff HEAD
+    i    = init
+    ib   = init --bare
+    l    = log
+    lg   = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    ld   = log --color --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+    m    = merge
+    p    = push
+    prum = pull --rebase upstream main
+    s    = status -s
+    st   = stash
+    stl  = stash list
+    std  = stash drop
+    stp  = stash pop
+    r    = remote -v
+
+# Core settings
+[core]
+    excludesfile = ~/.gitignore
+    attributesfile = ~/.gitattributes
+
+# Color settings
+[color]
+    ui = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
+# Merge settings
+[merge]
+    log = true
+
+# URL shortcuts
+[url "git@github.com:"]
+    insteadOf = "gh:"
+    pushInsteadOf = "github:"
+    pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+    insteadOf = "github:"
+[url "git@gist.github.com:"]
+    insteadOf = "gst:"
+    pushInsteadOf = "gist:"
+    pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+    insteadOf = "gist:"
+
+# Push settings
+[push]
+    default = current
+
+# Git LFS settings
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    required = true
+    clean = git-lfs clean -- %f
+    process = git-lfs filter-process
+
+# Default branch setting
+[init]
+    defaultBranch = main

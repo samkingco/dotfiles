@@ -5,4 +5,18 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 .extra
-.gitconfig
+.gitconfig.local
+
+# Node
+node_modules/
+.npm/
+.nvm/
+
+# Logs
+*.log
+
+# IDE/Editor specific
+.idea/
+.vscode/
+*.sublime-*
+.vim/
