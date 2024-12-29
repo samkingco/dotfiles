@@ -77,7 +77,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # Scripts
-alias dotsetup="$HOME/Code/dotfiles/scripts/install.sh"
+alias dotsetup="$HOME/Code/dotfiles/scripts/configure-dotfiles.sh"
 alias defaults="$HOME/Code/dotfiles/scripts/configure-macos.sh"
 
 # GIT
