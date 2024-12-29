@@ -2,7 +2,8 @@
 # Prompt                                                                      #
 ###############################################################################
 
-PROMPT='%B%F{yellow}%1~ →%f%b '
+setopt PROMPT_SUBST
+PROMPT='%B%F{yellow}%1~%b%F{magenta}$(git_prompt_info) %B%F{yellow}→%f%b '
 
 ###############################################################################
 # Environment & Path                                                          #
@@ -147,6 +148,13 @@ function currepo() {
 
 function curbranch() {
   git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
+}
+
+function git_prompt_info() {
+  local ref dirty
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+  dirty=$(git status --porcelain 2> /dev/null | tail -n1)
+  echo "/${ref#refs/heads/}${dirty:+ *}"
 }
 
 # Copy with progress
