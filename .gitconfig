@@ -85,3 +85,6 @@
 # Default branch setting
 [init]
     defaultBranch = main
+[user]
+	name = samkingco
+	email = mail@samking.co
