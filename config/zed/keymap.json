@@ -1,0 +1,37 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "bindings": {
+      "ctrl-1": "workspace::FocusCenterPane",
+      "ctrl-2": "project_panel::ToggleFocus",
+      "ctrl-3": "git_panel::ToggleFocus",
+      "cmd-t": "workspace::NewFile",
+      "cmd-p": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-?": null
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      "ctrl-enter": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-shift-r": ["task::Spawn", { "task_name": "Pi Review: Mark selection or line" }]
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  }
+]

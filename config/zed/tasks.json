@@ -1,0 +1,14 @@
+[
+  {
+    "label": "Pi Review: Mark selection or line",
+    "command": "/Users/sk/Code/dotfiles/scripts/pi-review-marker.js",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "save": "current",
+    "reveal": "never",
+    "hide": "on_success",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": true,
+    "show_summary": false,
+    "show_command": false
+  }
+]
