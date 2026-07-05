@@ -16,6 +16,7 @@ export EDITOR="zed"
 export MANPAGER="less -X"
 
 # Path
+export AGENTS_HOME="$HOME/Code/agents"
 export PATH="/usr/local/bin:$PATH"
 
 # pnpm
@@ -44,6 +45,10 @@ export PATH="/opt/homebrew/opt/mysql-client@8.4/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Global/default Node comes from nvm. Project repos can override it with mise
+# when they have mise.toml/.node-version (mise is activated near the end of this file).
+nvm use --silent default >/dev/null
 
 ###############################################################################
 # Shell Options                                                               #
@@ -242,3 +247,8 @@ brain-link() {
   [[ -e "$root/.local" && ! -L "$root/.local" ]] && { echo "$root/.local exists and isn't a symlink"; return 1; }
   ln -sfn "$src" "$root/.local"
 }
+# Activate mise after nvm so repo-local tool versions win over the global nvm default.
+# Example: glif-graph currently uses Node 24.x from mise for `pnpm install`.
+eval "$(mise activate zsh)"
+
+export PATH="$AGENTS_HOME/bin:$PATH"
